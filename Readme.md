@@ -1,4 +1,4 @@
-# Express Resource
+# Express Resource Documentation in Coffeescript
 
   express-resource provides resourceful routing to express.
 
@@ -12,33 +12,36 @@ npm:
 
  To get started simply `require('express-resource')`, and this module will monkey-patch Express, enabling resourceful routing by providing the `app.resource()` method. A "resource" is simply an object, which defines one of more of the supported "actions" listed below:
 
-    exports.index = function(req, res){
+    # GET     /forums              ->  index
+    exports.index = (req, res) ->
       res.send('forum index');
-    };
-
-    exports.new = function(req, res){
+    
+    # GET     /forums/new          ->  new
+    exports.new = (req, res) ->
       res.send('new forum');
-    };
-
-    exports.create = function(req, res){
+    
+    
+    # POST    /forums              ->  create
+    exports.create = (req, res) ->
       res.send('create forum');
-    };
-
-    exports.show = function(req, res){
+    
+    # GET     /forums/:forum       ->  show
+    exports.show = (req, res) ->
       res.send('show forum ' + req.params.forum);
-    };
-
-    exports.edit = function(req, res){
+    
+    
+    # GET     /forums/:forum/edit  ->  edit
+    exports.edit = (req, res) ->
       res.send('edit forum ' + req.params.forum);
-    };
-
-    exports.update = function(req, res){
+    
+    
+    # PUT     /forums/:forum       ->  update
+    exports.update = (req, res) ->
       res.send('update forum ' + req.params.forum);
-    };
-
-    exports.destroy = function(req, res){
+    
+    # DELETE  /forums/:forum       ->  destroy
+    exports.destroy = (req, res) ->
       res.send('destroy forum ' + req.params.forum);
-    };
 
 The `app.resource()` method returns a new `Resource` object, which can be used to further map pathnames, nest resources, and more.
 
